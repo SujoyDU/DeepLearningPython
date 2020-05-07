@@ -14,12 +14,21 @@ import random
 """
 After downloading COCO dataset, It should have the following structure:
 cocoDATA
-    --Annotations
-    --train2017
-    --val2017
+    |--Annotations
+        --annotations_file.json
+    |--train2017
+        --images.jpeg
+    |--val2017
+        --images.jpeg
 
 The code bellow will extract selected features from the annotations file and create a new json file
 in coco format from those features.
+
+The following code test Person, Car and Bicycle categories. 
+I have used the val2017 folder and its annotation file to train this model. As those folder and file are relatively small
+compared to train2017 and its annotation file.
+
+With my i7 6700 cpu and gtx 1070 gpu on a hdd the code takes about 3 minutes to train and predict the categories.
 """
 def getJsonFile(dataDir:str,imageFolderName:str,selectedCategories:list) -> str:
     """
